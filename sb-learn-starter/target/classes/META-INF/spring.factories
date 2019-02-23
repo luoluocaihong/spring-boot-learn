@@ -1,4 +1,8 @@
-## Application Listeners
-#org.springframework.context.ApplicationListener=\
-#com.luoluocaihong.springboot.learn.starter.listener.SpringContextApplicationListener
-#
+# Application Listeners
+org.springframework.context.ApplicationListener=\
+com.luoluocaihong.springboot.learn.starter.listener.SpringContextApplicationListener
+
+
+# Run Listeners
+#org.springframework.boot.SpringApplicationRunListener=\
+#com.luoluocaihong.springboot.learn.starter.listener.SpringContextRunListener
