@@ -8,7 +8,7 @@
 代码:```com.luoluocaihong.springboot.learn.starter.aware.SpringContextAware```
 通过配置```luoluocaihong.spring.context.aware.enabled=true```来启动这种方式  
 
-方式三,使用springboot的事件监听机制,写一个监听器,监听容器完成事件```ApplicationContextInitializedEvent```,在监听器中完成spring容器的注入  
+方式三,使用springboot的事件监听机制,写一个监听器,监听容器prepared事件```ApplicationPreparedEvent```,在监听器中完成spring容器的注入  
 代码```com.luoluocaihong.springboot.learn.starter.listener.SpringContextApplicationListener```  
 通过在```resources\META-INF\spring.factories```中配置```org.springframework.context.ApplicationListener```的实现类即可  
 
