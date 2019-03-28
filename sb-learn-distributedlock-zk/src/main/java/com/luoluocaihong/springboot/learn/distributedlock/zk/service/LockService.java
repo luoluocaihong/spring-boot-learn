@@ -1,8 +1,7 @@
 package com.luoluocaihong.springboot.learn.distributedlock.zk.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.integration.zookeeper.lock.ZookeeperLockRegistry;
-import org.springframework.util.StringUtils;
+import org.springframework.integration.support.locks.LockRegistry;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,13 +13,16 @@ import java.util.concurrent.locks.Lock;
 @RestController
 public class LockService {
     @Autowired
-    private ZookeeperLockRegistry lockRegistry;
+    private LockRegistry lockRegistry;
 
     private volatile boolean lockThreadA;
     private volatile boolean lockThreadB;
 
     @GetMapping("/lock")
     public String getLock() {
+
+        lockThreadA = false;
+        lockThreadB = false;
 
         //创建2个线程争抢锁
         Thread threadA = new Thread(() -> {
